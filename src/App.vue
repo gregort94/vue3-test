@@ -40,10 +40,10 @@
     <h2>Задача 3. Модификация вывода</h2>
     <div class="bordered-two">
       <the-counter>
-        <template #default>
+        <template #default="{counter}">
           <p>
             Count:
-            <input type="text" readonly>
+            <input :value="counter" type="text" readonly>
           </p>
         </template>
       </the-counter>
@@ -103,7 +103,17 @@ ul {
 .logo-container {
   max-width: 600px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
 }
 
 .bordered-two {

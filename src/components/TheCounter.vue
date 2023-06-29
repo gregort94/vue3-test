@@ -1,18 +1,14 @@
 <template>
   <div>
     <h3>TheCounter</h3>
-    <slot name="default">
-      <p>Count: {{ count }}</p>
+    <slot name="default" :counter="counter">
+      <p>Count: {{ counter }}</p>
     </slot>
-    <button @click="click">Click me</button>
+    <button @click="increaseCounter">Click me</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-
-const count = ref(0)
-const click = () => {
-  count.value++
-}
+import { useCounterStore } from "../stores/counterStore";
+const {increaseCounter, counter} = useCounterStore()
 </script>

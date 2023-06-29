@@ -1,10 +1,11 @@
 <template>
   <div>
     <h3>TheClicker</h3>
-    <button>Click me too</button>
+    <button @click="increaseCounter">Click me too</button>
   </div>
 </template>
 
 <script setup lang="ts">
-
+import {useCounterStore} from '../stores/counterStore'
+const {increaseCounter} = useCounterStore()
 </script>
